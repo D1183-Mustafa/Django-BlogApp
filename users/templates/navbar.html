@@ -1,0 +1,41 @@
+{% load static %}
+<ul class="nav p-2 justify-content-around" style="background-color: #5f788a">
+  <div class="nav justify-content-between align-items-center">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        aria-current="page"
+        href="#"
+        style="color: white"
+        ><h4>Blog Proje</h4></a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="#" style="color:white">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" style="color:white">About</a>
+    </li>
+  </div>
+  <div class="nav justify-content-between align-items-center">
+      {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}" style="color:white">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}" style="color:white">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}" style="color:white">New Post</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}" style="color:white">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}" style="color:white">Register</a>
+      </li>
+      {% endif %}
+
+  </div>
+</ul>
